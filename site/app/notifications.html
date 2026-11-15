@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Notifications · Fernhollow (Lens Lab)</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/components.css">
+<script src="/scripts/lab.js" defer></script>
+</head>
+<body>
+<header>
+<div class="lab-bar">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
+<div class="site-header">
+<a class="logo" href="/app/dashboard">Fernhollow <span class="muted">app</span></a>
+<nav class="site-nav app-nav" aria-label="App">
+<ul>
+<li><a href="/app/dashboard">Dashboard</a></li>
+<li><a href="/app/schedule">Schedule</a></li>
+<li><a href="/app/team">Team</a></li>
+<li><a href="/app/reports">Reports</a></li>
+<li><a href="/app/time-off">Time off</a></li>
+<li><a href="/app/notifications" aria-current="page">Notifications</a></li>
+<li><a href="/app/settings">Settings</a></li>
+<li><a href="/app/billing">Billing</a></li>
+<li><a href="/">Fernhollow website</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main">
+<h1>Notifications</h1>
+<p><button type="button" class="btn" id="mark-all-read">Mark all as read</button></p>
+<p id="notice-status" role="status"></p>
+<ul class="notice-list">
+<li data-unread="true"><span class="badge badge-ok unread-tag">New</span> Kavya Menon asked for 24–26 November off.<br><time class="muted" datetime="2026-11-15T09:12">Today, 09:12</time></li>
+<li data-unread="true"><span class="badge badge-ok unread-tag">New</span> Arjun Rao offered his Saturday 14:30 shift. Dev Malhotra took it.<br><time class="muted" datetime="2026-11-15T08:40">Today, 08:40</time></li>
+<li data-unread="false">The rota for 16–22 November was published to 10 people.<br><time class="muted" datetime="2026-11-12T18:05">12 November, 18:05</time></li>
+<li data-unread="false">Invoice FH-1046 for ₹1,416 was paid.<br><time class="muted" datetime="2026-11-01T10:00">1 November, 10:00</time></li>
+<li data-unread="false">Tara Fernandes updated her availability for December.<br><time class="muted" datetime="2026-10-30T21:47">30 October, 21:47</time></li>
+</ul>
+</main>
+<footer class="site-footer">
+<p>Fernhollow is a fictional product made to demonstrate CraftLayers Lens. Any resemblance to a real product or company is unintended.</p>
+<ul>
+<li><a href="/about">About</a></li>
+<li><a href="/changelog">Changelog</a></li>
+<li><a href="/privacy">Privacy</a></li>
+<li><a href="/help">Help centre</a></li>
+<li><a href="/app/dashboard">Open the demo app</a></li>
+<li><a href="https://craftlayers.com">CraftLayers</a></li>
+</ul>
+</footer>
+</body>
+</html>

@@ -11,6 +11,20 @@
   /* deprecated: use --color-brand instead (kept for old components) */
   --color-brand-old: #3d8a66;
 
+  /* chart palette: series colours chart-1 to chart-5 are at least 3:1 against --color-bg */
+  --color-chart-1: #2f6b4f;
+  --color-chart-2: #2b5c9e;
+  --color-chart-3: #a8501f;
+  --color-chart-4: #6b4c9a;
+  --color-chart-5: #7a6200;
+  --color-chart-grid: #e6e8ec;
+  --color-chart-previous: #c9d8d0;
+  --color-heat-0: #eef4f0;
+  --color-heat-1: #c4dccd;
+  --color-heat-2: #8fbba0;
+  --color-heat-3: #4f8f6a;
+  --color-heat-4: #1d4d38;
+
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --text-sm: 14px;
   --text-base: 16px;
