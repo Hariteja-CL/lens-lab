@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="/styles/components.css">
 </head>
 <body>
-<div class="lab-bar" role="note">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
-<header class="site-header">
+<header>
+<div class="lab-bar">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
+<div class="site-header">
 <a class="logo" href="/">Fernhollow</a>
 <nav class="site-nav" aria-label="Main">
 <ul>
@@ -22,6 +23,7 @@
 <li><a href="/signup">Sign up</a></li>
 </ul>
 </nav>
+</div>
 </header>
 <main id="main">
 <h1>Pricing</h1>
@@ -33,12 +35,12 @@
 <p>One café, up to 8 staff.</p>
 <a class="btn" href="/signup?plan=starter">Choose Starter</a>
 </div>
-<a class="plan-card" href="#compare">
+<div class="plan-card" role="button" tabindex="0">
 <h2>Team</h2>
 <p class="plan-price">₹1,200 / month</p>
 <p>Up to 3 cafés, unlimited staff, swap requests.</p>
-<button type="button" class="btn">Compare</button>
-</a>
+<a class="btn" href="#compare">Compare</a>
+</div>
 <div class="card">
 <h2>Group</h2>
 <p class="plan-price">₹4,500 / month</p>

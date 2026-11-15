@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="/styles/components.css">
 </head>
 <body>
-<div class="lab-bar" role="note">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
-<header class="site-header">
+<header>
+<div class="lab-bar">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
+<div class="site-header">
 <a class="logo" href="/">Fernhollow</a>
 <nav class="site-nav" aria-label="Main">
 <ul>
@@ -22,6 +23,7 @@
 <li><a href="/signup">Sign up</a></li>
 </ul>
 </nav>
+</div>
 </header>
 <main id="main">
 <h1>Create your Fernhollow account</h1>
@@ -30,8 +32,8 @@
 <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="off"></div>
 <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email"></div>
 <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="off"></div>
-<div class="field"><input name="team-size" type="number" min="1" placeholder="Team size"></div>
-<div class="field"><input name="opening-time" type="time" placeholder="Opening time"></div>
+<div class="field"><input name="team-size" type="number" min="1"></div>
+<div class="field"><input name="tills" type="number" min="1" placeholder="Number of tills"></div>
 <div class="field"><label for="plan">Plan</label><select id="plan" name="plan"><option>Starter</option><option>Team</option><option>Group</option></select></div>
 <button type="submit" class="btn btn-primary">Create account</button>
 </form>

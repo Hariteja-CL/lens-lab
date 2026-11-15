@@ -8,13 +8,13 @@ Token names below are written without their leading dashes on purpose, so this f
 | S-01 | / | "Start free trial" link, #8a94a3 on white (about 3:1) | colour contrast (1.4.3) | detected | fixed |
 | S-02 | / | Near-invisible "Book a demo" button, #eef0f3 on white (about 1.1:1) | colour contrast; worst-contrast crop | detected | open |
 | S-03 | /pricing | Visible "Choose Team", aria-label "Select plan" | label-content-name-mismatch (2.5.3) | detected | fixed |
-| S-04 | /pricing | Team plan card is a link with a "Compare" button inside | nested-interactive | detected | open |
+| S-04 | /pricing | Team plan card is a role="button" control with a "Compare" link inside | nested-interactive | detected | open |
 | S-05 | /pricing | 720 px comparison table without a scroll wrapper | phone pass (390 px): page scrolls sideways | detected | fixed |
 | S-06 | /blog/rota-tips | h1 followed by h3 | heading-order | detected | fixed |
 | S-07 | /app/dashboard | Empty header cell above the row-action column | empty-table-header | detected | open |
-| S-08 | /signup | Team size and opening time: placeholder only, no label | label | detected | fixed |
+| S-08 | /signup | Team size: no label and no placeholder. Number of tills: placeholder only | label (axe); placeholder-only is not flagged by axe | team size detected; tills: KNOWN GAP | fixed |
 | S-09 | /signup | Name and phone autocomplete="off"; email has none | Lens autocomplete probe (1.3.5) | detected | open |
-| S-10 | /blog/rota-tips | Broken image (latte-art.svg missing) | none yet (backlog: broken-image check) | KNOWN GAP: not detected | fixed |
+| S-10 | /blog/rota-tips | Broken image (latte-art.svg missing) | page-load checks: console error + failed request (no dedicated broken-image check yet) | detected (indirectly) | fixed |
 | S-11 | site/styles/components.css | Hard-coded hex colours instead of tokens | DS-TOKEN-HARDCODE | detected (Pages + GitHub) | open |
 | S-12 | DESIGN.md | Documents color-accent-warm and space-7, which tokens.css does not define | DS-DOC-DRIFT | detected (Pages + GitHub) | fixed |
 | S-13 | tokens.css / components.css | color-brand-old is marked deprecated but still used | DS-DOC-DRIFT | detected (Pages + GitHub) | open |
