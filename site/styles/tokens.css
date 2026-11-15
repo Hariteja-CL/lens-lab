@@ -1,0 +1,30 @@
+/* Fernhollow design tokens. Fernhollow is a fictional product (Lens Lab, a CraftLayers testing ground). */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f7f5f2;
+  --color-text: #1f2328;
+  --color-muted: #5b616b;
+  --color-brand: #2f6b4f;
+  --color-brand-ink: #ffffff;
+  --color-border: #d9dde3;
+  --color-focus: #1a56db;
+  /* deprecated: use --color-brand instead (kept for old components) */
+  --color-brand-old: #3d8a66;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}

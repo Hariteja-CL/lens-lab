@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dashboard · Fernhollow (Lens Lab)</title>
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/components.css">
+</head>
+<body>
+<div class="lab-bar" role="note">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
+<header class="site-header">
+<a class="logo" href="/">Fernhollow</a>
+<nav class="site-nav" aria-label="Main">
+<ul>
+<li><a href="/pricing">Pricing</a></li>
+<li><a href="/app/dashboard">Dashboard</a></li>
+<li><a href="/blog">Blog</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/signup">Sign up</a></li>
+</ul>
+</nav>
+</header>
+<main id="main">
+<h1>This week at Fernhollow Café (demo data)</h1>
+<p class="stat">42 shifts planned · 3 open · 2 swap requests</p>
+<h2>Shifts covered per day</h2>
+<svg role="img" width="320" height="140" viewBox="0 0 320 140">
+<rect class="chart-bar" x="10" y="40" width="30" height="100"></rect>
+<rect class="chart-bar" x="55" y="30" width="30" height="110"></rect>
+<rect class="chart-bar" x="100" y="50" width="30" height="90"></rect>
+<rect class="chart-bar" x="145" y="20" width="30" height="120"></rect>
+<rect class="chart-bar" x="190" y="10" width="30" height="130"></rect>
+<rect class="chart-bar" x="235" y="0" width="30" height="140"></rect>
+<rect class="chart-bar" x="280" y="60" width="30" height="80"></rect>
+</svg>
+<h2>Open shifts</h2>
+<table>
+<caption>Shifts that still need someone</caption>
+<thead><tr><th></th><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Role</th></tr></thead>
+<tbody>
+<tr><td><a href="/app/settings">Edit</a></td><td>Tuesday</td><td>06:30–12:00</td><td>Barista</td></tr>
+<tr><td><a href="/app/settings">Edit</a></td><td>Friday</td><td>15:00–21:00</td><td>Kitchen</td></tr>
+<tr><td><a href="/app/settings">Edit</a></td><td>Sunday</td><td>08:00–14:00</td><td>Front of house</td></tr>
+</tbody>
+</table>
+</main>
+<footer class="site-footer">
+<p>Fernhollow is a fictional product made to demonstrate CraftLayers Lens. Any resemblance to a real product or company is unintended.</p>
+<ul>
+<li><a href="/changelog">Changelog</a></li>
+<li><a href="/privacy">Privacy</a></li>
+<li><a href="https://craftlayers.com">CraftLayers</a></li>
+</ul>
+</footer>
+</body>
+</html>
