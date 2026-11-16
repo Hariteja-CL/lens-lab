@@ -58,7 +58,7 @@ Expected known gaps or needs review: S-08 (tills), S-22 to S-26.
 | S-07 | The action column header reads "Action" |
 | S-08 | Team size and number of tills have visible labels; no placeholder-only field |
 | S-09 | Name and phone use autocomplete="name" and "tel" |
-| S-10 | The missing latte-art.svg is replaced by the existing café counter image, with alt text |
+| S-10 | The missing latte-art.svg is replaced by the existing home image (the rota card), with alt text |
 | S-12 | DESIGN.md no longer documents color-accent-warm or space-7 |
 | S-14 | Font sizes use text-sm, text-base and text-xl tokens (14, 16, 24 px) |
 | S-16 | The notification settings icon button is named "Notification settings" |

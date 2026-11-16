@@ -244,7 +244,7 @@ pages['index.html'] = { title: 'Shift planning for small cafés', route: '/', bo
 <h1>Plan café shifts in minutes, not evenings</h1>
 <p class="lede">Fernhollow builds a fair weekly rota for your baristas and kitchen team, checks it against everyone's availability, and sends it to their phones.</p>
 <p class="promo">New: swap requests now need only one tap.</p>
-<img src="/images/cafe-counter.svg" alt="Illustration of a café counter" width="480" height="200">
+<img src="/images/cafe-counter.svg" alt="Weekly rota card for 16 to 22 November: five staff and their shift times, Monday to Sunday. Ravi has asked to swap his Friday shift." width="480" height="200">
 <p>
 <a class="btn btn-soft" href="/signup">Start free trial</a>
 <button type="button" class="btn btn-ghost">Book a demo</button>
@@ -389,7 +389,7 @@ pages['blog/rota-tips.html'] = { title: 'Five rota tips for a calmer café week'
 <h1>Five rota tips for a calmer café week</h1>
 <p class="post-meta"><time datetime="2026-10-12">12 October 2026</time> · 4 minute read</p>
 <p>Small cafés live and die by the morning rush. These tips come from fictional café owners.</p>
-<img src="/images/cafe-counter.svg" alt="Illustration of a café counter" width="480" height="200">
+<img src="/images/cafe-counter.svg" alt="Weekly rota card for 16 to 22 November: five staff and their shift times, Monday to Sunday. Ravi has asked to swap his Friday shift." width="480" height="200">
 ${['Publish the rota a week ahead|People plan their lives around it; two days of notice is not enough.', 'Rotate the opening shift|Nobody should open six days in a row.', 'Keep one floating shift|A flexible person on Friday afternoon saves the weekend.', 'Pair new starters with a shift lead|Their first three shifts should overlap with someone experienced.', 'Review the rota against the till|If Tuesday afternoons are quiet, say so in your cover targets.']
     .map((s, i) => { const [h, p] = s.split('|'); return `<h2>${i + 1}. ${h}</h2>\n<p>${p}</p>`; }).join('\n')}
 </article>` };
