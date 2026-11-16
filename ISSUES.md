@@ -48,10 +48,11 @@ Expected known gaps or needs review: S-08 (tills), S-22 to S-26.
 
 ## v2-after branch (16 Nov 2026, for the free-recheck demo)
 
-`v2-after` starts from v2 (`main`, e39505c) and fixes 13 of the 26 seeded issues. It adds no new issue. S-18 (clean pages) stays clean.
+`v2-after` starts from v2 (`main`, e39505c) and fixes 14 of the 26 seeded issues. It adds no new issue. S-18 (clean pages) stays clean.
 
 | Fixed | How |
 |---|---|
+| S-02 | "Book a demo" is white on a darker brand orange (#c2410c), 5.18:1 |
 | S-03 | "Choose Group" has no aria-label, so its name is its visible text |
 | S-05 | Comparison table wrapped in a scrollable, labelled region |
 | S-06 | The five tips are h2 under the h1 |
@@ -66,5 +67,5 @@ Expected known gaps or needs review: S-08 (tills), S-22 to S-26.
 | S-19 | The home page image has alt text |
 | S-21 | Every page has `<html lang="en">` |
 
-Still open on purpose (13): S-01, S-02, S-04, S-11, S-13, S-15, S-20, S-22, S-23, S-24, S-25, S-26, S-27.
+Still open on purpose (12): S-01, S-04, S-11, S-13, S-15, S-20, S-22, S-23, S-24, S-25, S-26, S-27.
 Static checks on this branch: `LENSLAB_VARIANT=v2-after node tools/check-v2.mjs`.
