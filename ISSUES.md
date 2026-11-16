@@ -45,3 +45,26 @@ These pages have no seeded issue of their own and should produce no page finding
 27 IDs: 26 seeded issues (S-01 to S-17, S-19 to S-27) plus S-18 (clean pages).
 Expected detected: S-01 to S-07, S-08 (team size only), S-09, S-10 (indirectly), S-11 to S-17, S-19 to S-21, S-27.
 Expected known gaps or needs review: S-08 (tills), S-22 to S-26.
+
+## v2-after branch (16 Nov 2026, for the free-recheck demo)
+
+`v2-after` starts from v2 (`main`, e39505c) and fixes 13 of the 26 seeded issues. It adds no new issue. S-18 (clean pages) stays clean.
+
+| Fixed | How |
+|---|---|
+| S-03 | "Choose Group" has no aria-label, so its name is its visible text |
+| S-05 | Comparison table wrapped in a scrollable, labelled region |
+| S-06 | The five tips are h2 under the h1 |
+| S-07 | The action column header reads "Action" |
+| S-08 | Team size and number of tills have visible labels; no placeholder-only field |
+| S-09 | Name and phone use autocomplete="name" and "tel" |
+| S-10 | The missing latte-art.svg is replaced by the existing café counter image, with alt text |
+| S-12 | DESIGN.md no longer documents color-accent-warm or space-7 |
+| S-14 | Font sizes use text-sm, text-base and text-xl tokens (14, 16, 24 px) |
+| S-16 | The notification settings icon button is named "Notification settings" |
+| S-17 | The "Shifts covered per day" chart has a name that gives the values |
+| S-19 | The home page image has alt text |
+| S-21 | Every page has `<html lang="en">` |
+
+Still open on purpose (13): S-01, S-02, S-04, S-11, S-13, S-15, S-20, S-22, S-23, S-24, S-25, S-26, S-27.
+Static checks on this branch: `LENSLAB_VARIANT=v2-after node tools/check-v2.mjs`.

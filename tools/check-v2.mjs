@@ -75,6 +75,8 @@ for (const f of html) {
   for (const [img] of src.matchAll(/<img\b[^>]*>/g)) if (!/\salt=/.test(img)) note(f, `img without alt: ${img.slice(0, 60)}`);
   if (/type="time"/.test(src)) err(f, 'native time input');
 }
-if (noLang !== 1) err(SITE, `${noLang} pages without lang (expected exactly 1)`);
+// v2-after fixes S-21, so no page may lack lang there; v2 keeps exactly one (the seed).
+const LANG_EXPECTED = process.env.LENSLAB_VARIANT === "v2-after" ? 0 : 1;
+if (noLang !== LANG_EXPECTED) err(SITE, `${noLang} pages without lang (expected exactly ${LANG_EXPECTED})`);
 console.log(errors ? `${errors} error(s)` : 'no errors');
 process.exit(errors ? 1 : 0);

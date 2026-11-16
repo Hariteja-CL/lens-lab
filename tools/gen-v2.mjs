@@ -244,7 +244,7 @@ pages['index.html'] = { title: 'Shift planning for small cafés', route: '/', bo
 <h1>Plan café shifts in minutes, not evenings</h1>
 <p class="lede">Fernhollow builds a fair weekly rota for your baristas and kitchen team, checks it against everyone's availability, and sends it to their phones.</p>
 <p class="promo">New: swap requests now need only one tap.</p>
-<img src="/images/cafe-counter.svg" width="480" height="200">
+<img src="/images/cafe-counter.svg" alt="Illustration of a café counter" width="480" height="200">
 <p>
 <a class="btn btn-soft" href="/signup">Start free trial</a>
 <button type="button" class="btn btn-ghost">Book a demo</button>
@@ -327,10 +327,11 @@ pages['pricing.html'] = { title: 'Pricing', route: '/pricing', body: `
 <h2>Group</h2>
 <p class="plan-price">₹4,500 / month</p>
 <p>Unlimited cafés, payroll export and a named support contact.</p>
-<a class="btn btn-primary" href="/signup?plan=group" aria-label="Select plan">Choose Group</a>
+<a class="btn btn-primary" href="/signup?plan=group">Choose Group</a>
 </div>
 </div>
 <h2 id="compare">Compare plans</h2>
+<div class="table-scroll" role="region" aria-label="What each plan includes" tabindex="0">
 <table class="compare">
 <caption>What each plan includes</caption>
 <thead><tr><th scope="col">Feature</th><th scope="col">Starter</th><th scope="col">Team</th><th scope="col">Group</th></tr></thead>
@@ -344,6 +345,7 @@ pages['pricing.html'] = { title: 'Pricing', route: '/pricing', body: `
 <tr><th scope="row">Support</th><td>Help centre</td><td>Email, 1 working day</td><td>Named contact</td></tr>
 </tbody>
 </table>
+</div>
 <h2>Questions</h2>
 <details><summary>Can I change plan later?</summary><p>Yes. Changes take effect from your next invoice.</p></details>
 <details><summary>Do you charge per staff member?</summary><p>No. Team and Group include unlimited staff.</p></details>` };
@@ -387,9 +389,9 @@ pages['blog/rota-tips.html'] = { title: 'Five rota tips for a calmer café week'
 <h1>Five rota tips for a calmer café week</h1>
 <p class="post-meta"><time datetime="2026-10-12">12 October 2026</time> · 4 minute read</p>
 <p>Small cafés live and die by the morning rush. These tips come from fictional café owners.</p>
-<img src="/images/latte-art.svg" alt="A latte with a fern pattern in the foam" width="480" height="270">
+<img src="/images/cafe-counter.svg" alt="Illustration of a café counter" width="480" height="200">
 ${['Publish the rota a week ahead|People plan their lives around it; two days of notice is not enough.', 'Rotate the opening shift|Nobody should open six days in a row.', 'Keep one floating shift|A flexible person on Friday afternoon saves the weekend.', 'Pair new starters with a shift lead|Their first three shifts should overlap with someone experienced.', 'Review the rota against the till|If Tuesday afternoons are quiet, say so in your cover targets.']
-    .map((s, i) => { const [h, p] = s.split('|'); return `<h3>${i + 1}. ${h}</h3>\n<p>${p}</p>`; }).join('\n')}
+    .map((s, i) => { const [h, p] = s.split('|'); return `<h2>${i + 1}. ${h}</h2>\n<p>${p}</p>`; }).join('\n')}
 </article>` };
 
 const COVERS = [12, 34, 58, 61, 44, 38, 52, 47, 29, 22, 26, 31, 18];
@@ -491,12 +493,12 @@ pages['signup.html'] = { title: 'Create your account', route: '/signup', body: `
 <h1>Create your Fernhollow account</h1>
 <p>This form is a demo: nothing is sent or stored.</p>
 <form action="/signup" method="get" onsubmit="return false">
-<div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="off"></div>
+<div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name"></div>
 <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email"></div>
-<div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="off"></div>
+<div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
 <div class="field"><label for="cafe-name">Café name</label><input id="cafe-name" name="cafe-name" type="text" autocomplete="organization"></div>
-<div class="field"><input name="team-size" type="number" min="1"></div>
-<div class="field"><input name="tills" type="number" min="1" placeholder="Number of tills"></div>
+<div class="field"><label for="team-size">Team size</label><input id="team-size" name="team-size" type="number" min="1"></div>
+<div class="field"><label for="tills">Number of tills</label><input id="tills" name="tills" type="number" min="1"></div>
 <div class="field"><label for="plan">Plan</label><select id="plan" name="plan"><option>Starter</option><option>Team</option><option>Group</option></select></div>
 <button type="submit" class="btn btn-primary">Create account</button>
 </form>
@@ -517,7 +519,7 @@ pages['signin.html'] = { title: 'Sign in', route: '/signin', body: `
 // ---------- app pages ----------
 const COVERED = [11, 12, 10, 13, 14, 15, 9];
 // Dashboard: S-07 (empty header cell), S-17 (svg role=img, no name), S-21 (no lang)
-pages['app/dashboard.html'] = { app: true, noLang: true, title: 'Dashboard', route: '/app/dashboard', body: `
+pages['app/dashboard.html'] = { app: true, title: 'Dashboard', route: '/app/dashboard', body: `
 <h1>This week at Fernhollow Café, Indiranagar (demo data)</h1>
 <p class="stat">42 shifts planned · 3 open · 2 swap requests</p>
 <h2>At a glance</h2>
@@ -528,7 +530,7 @@ ${kpi('Labour cost', inr(48760), '24% of forecast sales', [45200, 46100, 45800, 
 ${kpi('Swap requests', '2', '1 waiting for a teammate', [5, 3, 4, 2, 6, 3, 1, 2])}
 </div>
 <h2 class="section">Shifts covered per day</h2>
-<svg role="img" width="320" height="160" viewBox="0 0 320 160">
+<svg role="img" aria-label="Bar chart: shifts covered per day, Monday to Sunday: 11, 12, 10, 13, 14, 15 and 9. Saturday is the busiest day." width="320" height="160" viewBox="0 0 320 160">
 ${COVERED.map((v, i) => `<rect class="chart-bar" x="${10 + i * 45}" y="${140 - v * 8}" width="30" height="${v * 8}"></rect><text x="${25 + i * 45}" y="156" text-anchor="middle">${DAYS[i].slice(0, 3)}</text>`).join('\n')}
 </svg>
 <h2 class="section">Shifts by role</h2>
@@ -566,7 +568,7 @@ ${gauge({ pct: 92, svgAttrs: 'role="img" aria-label="Gauge: 92% of required hour
 <h2 class="section">Open shifts</h2>
 <table>
 <caption>Shifts that still need someone</caption>
-<thead><tr><th></th><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Role</th></tr></thead>
+<thead><tr><th scope="col">Action</th><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Role</th></tr></thead>
 <tbody>
 <tr><td><a href="/app/schedule">Edit</a></td><td>Tuesday</td><td>06:30–12:00</td><td>Barista</td></tr>
 <tr><td><a href="/app/schedule">Edit</a></td><td>Friday</td><td>15:00–21:00</td><td>Kitchen</td></tr>
@@ -728,7 +730,7 @@ pages['app/settings.html'] = { app: true, title: 'Settings', route: '/app/settin
 <h1>Café settings (demo)</h1>
 <p><a class="icon-btn" href="/help/swap-requests"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M10 14v-1m0-3a2 2 0 1 0-2-2" stroke="currentColor" stroke-width="2" fill="none"></path></svg></a> Scheduling help</p>
 <p>Notification settings
-<button type="button" class="icon-btn"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2a5 5 0 0 0-5 5v3l-2 3h14l-2-3V7a5 5 0 0 0-5-5zm0 16a2 2 0 0 0 2-2H8a2 2 0 0 0 2 2z" fill="currentColor"></path></svg></button>
+<button type="button" class="icon-btn" aria-label="Notification settings"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2a5 5 0 0 0-5 5v3l-2 3h14l-2-3V7a5 5 0 0 0-5-5zm0 16a2 2 0 0 0 2-2H8a2 2 0 0 0 2 2z" fill="currentColor"></path></svg></button>
 </p>
 <form onsubmit="return false">
 <div class="field"><label for="cafe">Café name</label><input id="cafe" name="cafe" type="text" value="Fernhollow Café, Indiranagar" autocomplete="organization"></div>
