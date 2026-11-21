@@ -69,3 +69,38 @@ Expected known gaps or needs review: S-08 (tills), S-22 to S-26.
 
 Still open on purpose (12): S-01, S-04, S-11, S-13, S-15, S-20, S-22, S-23, S-24, S-25, S-26, S-27.
 Static checks on this branch: `LENSLAB_VARIANT=v2-after node tools/check-v2.mjs`.
+
+## Token drift cases (branch claude/token-drift-examples, 21 Nov 2026)
+
+Branch `claude/token-drift-examples` starts from `main` (a7e2a83) and only adds the cases below; every other seed, page and expectation above is unchanged. Engine: Token Drift checks 1 to 3 (spec approved by Hari on 20 Nov 2026). These are source checks: they need the code (ZIP or GitHub). A website-only scan reports them as Not assessed and adds no token findings.
+Token names are written without their leading dashes, as above. Line numbers are in site/styles/components.css unless another file is named.
+
+| ID | Check | File, line | Plant | Expected |
+|---|---|---|---|---|
+| T-01 | 1a undefined token used in code | components.css 18 (.promo-badge, "Most popular" on /pricing) | color: var(color-accent-warm), no fallback; nothing defines it | Medium: "color-accent-warm is used but not defined (1 use)" |
+| T-02 | 1a control | components.css 20 (.plan-highlight on /pricing) | var(color-highlight, var(color-brand)): fallback present | No finding (listed as fallback-only in the evidence) |
+| T-08 | 1b documented but not defined | DESIGN.md 14 and 34 | DESIGN.md documents color-accent-warm (promo badges) and space-5 (20 px); the code defines neither | Low, one group: "DESIGN.md documents 2 tokens the code never defines (color-accent-warm, space-5)" |
+| T-09 | 2 off-scale font size | components.css 17 (.promo-badge) | font-size: 13px; type scale is 14, 16, 20, 24, 32 (tokens.css) | Low: "Text sizes 13px are outside your type scale" |
+| S-15 (kept) | 2 off-scale spacing | components.css 4, 5, 8 (.promo, .plan-card, .stat) | Spacing 7 and 13 px; spacing scale is 4, 8, 12, 16, 24, 32 (tokens.css) | Low: "Spacing values 7px, 13px are outside your spacing scale" (same as on main) |
+| T-03 | 2 control | components.css 21 (.plan-note on /pricing) | font-size: 0.875rem (= 14 px) and padding: calc(var(space-2) * 2) | No finding |
+| T-04 | 3 primitive used where a semantic token exists | tokens.css 4 to 7 and 15 to 17; components.css 22 (.pricing-cta .btn-primary, "Choose Group" on /pricing) | Palette primitives green-600, blue-600, grey-900, orange-800 (#9a3412). color-text, color-brand, color-focus and the new color-action-primary are defined from them (tiers proven: 4 role tokens alias palette tokens). The Group plan button uses var(orange-800) for background and border | Low: "Raw palette token orange-800 used instead of color-action-primary (2 uses in components.css)" |
+| T-05 | 3 control | components.css 23 (.chart .series-cost) | Chart series stroke uses var(orange-800) | No finding (charts use primitives by design) |
+
+Not ported from the earlier work-in-progress branch `claude/token-drift` (based on the older 953a592): T-06 and T-07 (check 4, component consistency, not approved for this release). T-04 there used green-600 on .plan-card h2; here it is the orange-800 → color-action-primary pair.
+
+Side effects on other groups, checked by a local engine run against main and this branch (same 23 pages, with code): none. Every non-token finding and check is identical (58 findings on main, 62 here: the 4 token findings above). One wording change only inside an existing evidence line: the S-11 group "Literal colour equals an approved token (3 in components.css)" now says #2f6b4f equals green-600 instead of color-chart-1 (same group, same 3 uses). orange-800 was chosen because no hard-coded colour in the site uses #9a3412; using #c2410c would have added two new S-11 groups (the S-02 "Book a demo" colour).
+
+### Scorecard: local engine run, 21 Nov 2026 (engine branch claude/token-drift, this branch's code + its site served on 127.0.0.1, 23 pages)
+
+| Case | Result |
+|---|---|
+| T-01 | Caught (Medium, components.css line 18) |
+| T-02 | Clean |
+| T-08 | Caught (Low, both names, DESIGN.md lines 14 and 34) |
+| T-09 | Caught (Low, 13px, components.css line 17) |
+| S-15 | Caught (Low, 7px and 13px, lines 4, 5 and 8) |
+| T-03 | Clean |
+| T-04 | Caught (Low, orange-800 → color-action-primary, line 22) |
+| T-05 | Clean |
+| Invented token-drift findings | 0 |
+| main (a7e2a83) with code | Only S-15 among the token checks; check 3 Not assessed (flat role names), as expected |

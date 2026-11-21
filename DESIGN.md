@@ -10,7 +10,12 @@ Fernhollow is a fictional product (Lens Lab, a CraftLayers testing ground). This
 | `--color-text` | Body text |
 | `--color-muted` | Secondary text |
 | `--color-brand` | Primary actions and links |
+| `--color-action-primary` | The main call to action on a page (for example "Choose Group") |
+| `--color-accent-warm` | Promotional badges, such as "Most popular" on /pricing |
 | `--color-brand-old` | Deprecated: do not use in new work |
+
+## Palette
+`--green-600`, `--blue-600`, `--grey-900` and `--orange-800` are raw palette colours. Role tokens such as `--color-brand` and `--color-action-primary` are defined from them. Components use the role tokens, never the palette directly (charts may use the palette).
 
 ## Charts
 | Token | Use |
@@ -26,7 +31,7 @@ Charts always carry a text alternative: an accessible name that states the main 
 `--text-sm` 14, `--text-base` 16, `--text-lg` 20, `--text-xl` 24, `--text-2xl` 32. No other sizes.
 
 ## Spacing
-`--space-1` 4, `--space-2` 8, `--space-3` 12, `--space-4` 16, `--space-6` 24, `--space-8` 32.
+`--space-1` 4, `--space-2` 8, `--space-3` 12, `--space-4` 16, `--space-5` 20, `--space-6` 24, `--space-8` 32.
 
 ## Radius
 `--radius-sm` 4, `--radius-md` 8.

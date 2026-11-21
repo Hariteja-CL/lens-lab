@@ -1,13 +1,20 @@
 /* Fernhollow design tokens. Fernhollow is a fictional product (Lens Lab, a CraftLayers testing ground). */
 :root {
+  /* Palette primitives (raw colours). Components use the role tokens below, not these. */
+  --green-600: #2f6b4f;
+  --blue-600: #1a56db;
+  --grey-900: #1f2328;
+  --orange-800: #9a3412;
+
   --color-bg: #ffffff;
   --color-surface: #f7f5f2;
-  --color-text: #1f2328;
+  --color-text: var(--grey-900);
   --color-muted: #5b616b;
-  --color-brand: #2f6b4f;
+  --color-brand: var(--green-600);
   --color-brand-ink: #ffffff;
   --color-border: #d9dde3;
-  --color-focus: #1a56db;
+  --color-focus: var(--blue-600);
+  --color-action-primary: var(--orange-800);
   /* deprecated: use --color-brand instead (kept for old components) */
   --color-brand-old: #3d8a66;
 
