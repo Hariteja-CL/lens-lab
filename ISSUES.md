@@ -104,3 +104,24 @@ Side effects on other groups, checked by a local engine run against main and thi
 | T-05 | Clean |
 | Invented token-drift findings | 0 |
 | main (a7e2a83) with code | Only S-15 among the token checks; check 3 Not assessed (flat role names), as expected |
+
+## Dark mode cases (branch claude/sprint-1-dark, 22 Nov 2026)
+
+Page: `/app/kitchen-display` (linked from the dashboard), styles in `site/styles/kitchen-display.css`, which only that page loads. The dark theme is a `[data-theme="dark"]` block switched on by the page's "Dark mode" button (`site/scripts/lab.js` sets `data-theme="dark"` on `<html>`). There is no `prefers-color-scheme` rule. Contrast ratios are computed from the declared values (WCAG formula).
+
+| ID | Check | File, line | Plant | Expected |
+|---|---|---|---|---|
+| D-01 | Light and dark values (light → dark) | tokens.css 15 | `--color-border: #d9dde3` has a light value and no dark value | In the Low group "Colour tokens … are missing a light or dark value"; Design system row "Light and dark values": "--color-border has a light value in tokens.css:15 but no dark value" |
+| D-02 | Light and dark values (alias, light → dark) | tokens.css 16 | `--color-focus: var(--blue-600)`; neither token has a dark value, so the focus ring keeps its light colour in dark mode | Same group: "--color-focus is defined from --blue-600 in tokens.css:16, and none of them has a dark value" |
+| D-03 | Light and dark values (dark → light) | kitchen-display.css 13 (used on line 21) | `--color-glow` is defined only in the dark theme, but `.kd-ticket.is-next` uses it in light mode too, so the "Next" ticket loses its highlight | Same group: "--color-glow has a dark value in kitchen-display.css:13 but no light value" |
+| D-04 | Text contrast in dark mode, declared in a dark rule | kitchen-display.css 17 (`[data-theme="dark"] .kd-note`) | Ticket notes: `--color-muted` (#4b525c) on `--color-surface` (#1a1f25) in dark mode, 2.10:1. In light mode the same notes are #5b616b on white | Medium, code contrast: "1 pair in kitchen-display.css", dark theme, 2.1:1 |
+| D-05 | Text contrast that fails only after the theme switch | kitchen-display.css 22 (`.kd-time`) | Light rule: `--color-muted` on `--color-surface` is 5.73:1 in light mode; with the dark values it is 2.10:1. The other muted text on this page ("app" beside the logo, the footer note) is #4b525c on the dark page background in dark mode, 2.34:1 | KNOWN GAP: Lens works out a light rule's pair with light values only, and the browser check can't switch this dark mode on (D-06) |
+| D-06 | Dark mode switched by a button | kitchen-display.html, lab.js | Dark mode is a `data-theme` attribute set by the "Dark mode" button; no `prefers-color-scheme` rule | Report, "Not tested automatically": "Dark mode: your dark theme is switched on by a class or attribute in the page (usually set by a button or toggle) … Text contrast in dark mode was not tested automatically." (from the code; on a website-only scan, from the page's stylesheet) |
+| C-01 | Light and dark values control | tokens.css 9 to 14 and 19, kitchen-display.css 5 to 12 | `--color-bg`, `--color-surface`, `--color-text` (alias of `--grey-900`, redefined in dark), `--color-brand`, `--color-brand-ink`, `--color-brand-old` have both values | Not listed |
+| C-02 | Alias control | tokens.css 17, kitchen-display.css 11 | `--color-action-primary: var(--orange-800)`; `--orange-800` has a dark value, so the alias has one too | Not listed |
+| C-03 | Dark contrast controls | kitchen-display.css 15, 16 and 18 | Body text #e8eaed on #111418 (15.32:1); ticket text and the Dark mode button #e8eaed on #1a1f25 (13.76:1) | No contrast finding |
+| C-04 | Not a role token | tokens.css 12 | `--color-muted` has no role in its name (text, surface, border …), so the light → dark rule does not ask for a dark value; it has one anyway | Not listed |
+
+Local check, 22 Nov 2026 (engine branch claude/sprint-1-b-maint, static scan of this repository with the Lens frontend boundary; no browser run, no deploy): exactly two findings were added by this page (DS-THEME-PARITY Low with D-01, D-02 and D-03; WCAG-1.4.3 Medium with D-04 at 2.1:1) and every other finding was unchanged. Engine d848205 and the sprint branch gave the same findings on this repository before the page was added. Still to confirm on the preview scan: D-06 on the website-only scan and the browser results for the new page.
+
+Note (sprint 1): check 1b (tokens named only in Markdown docs) was removed from Lens. Markdown is outside the Lens source boundary, so DESIGN.md is never read in a Lens scan; T-08 and S-12 are not reported by Lens.

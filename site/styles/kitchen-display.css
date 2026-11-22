@@ -1,0 +1,24 @@
+/* Fernhollow kitchen display and dark theme (Lens Lab dark-mode examples, sprint 1; see ISSUES.md, "Dark mode cases").
+   Fernhollow is fictional. Loaded only by /app/kitchen-display. The dark theme is switched on by the page's "Dark mode" button,
+   which sets data-theme="dark" on <html> (D-06). There is no prefers-color-scheme rule on purpose. */
+[data-theme="dark"] {
+  --color-bg: #111418;
+  --color-surface: #1a1f25;
+  --color-text: #e8eaed;
+  --color-muted: #4b525c;
+  --color-brand: #6fcf97;
+  --color-brand-ink: #0d1f16;
+  --orange-800: #fb923c;
+  --color-brand-old: #5fb98a;
+  --color-glow: #2a3b55;
+}
+[data-theme="dark"] body { color: var(--color-text); background: var(--color-bg); }
+[data-theme="dark"] .kd-ticket { color: var(--color-text); background: var(--color-surface); }
+[data-theme="dark"] .kd-note { color: var(--color-muted); background: var(--color-surface); }
+[data-theme="dark"] .kd-toggle { color: var(--color-text); background: var(--color-surface); }
+.kd-board { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); padding: 0; list-style: none; }
+.kd-ticket { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); }
+.kd-ticket.is-next { box-shadow: 0 0 0 3px var(--color-glow); }
+.kd-time { color: var(--color-muted); background: var(--color-surface); font-size: var(--text-sm); }
+.kd-note { color: var(--color-muted); font-size: var(--text-sm); }
+.kd-toggle:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }

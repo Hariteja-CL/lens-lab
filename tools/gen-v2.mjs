@@ -168,7 +168,7 @@ function navList(items, current) {
   return items.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a></li>`).join('\n');
 }
 
-function shell({ title, body, route, app = false, noLang = false }) {
+function shell({ title, body, route, app = false, noLang = false, css = [] }) {
   const nav = app
     ? `<nav class="site-nav app-nav" aria-label="App">\n<ul>\n${navList(APP_NAV, route)}\n</ul>\n</nav>`
     : `<nav class="site-nav" aria-label="Main">\n<ul>\n${navList(MAIN_NAV, route)}\n</ul>\n</nav>`;
@@ -183,7 +183,7 @@ ${noLang ? '<html>' : '<html lang="en">'}
 <link rel="stylesheet" href="/styles/tokens.css">
 <link rel="stylesheet" href="/styles/base.css">
 <link rel="stylesheet" href="/styles/components.css">
-<script src="/scripts/lab.js" defer></script>
+${css.map((c) => `<link rel="stylesheet" href="${c}">\n`).join('')}<script src="/scripts/lab.js" defer></script>
 </head>
 <body>
 <header>
@@ -531,6 +531,7 @@ ${kpi('Hours scheduled', '318 h', 'Up 12 h on last week', [290, 302, 298, 310, 2
 ${kpi('Labour cost', inr(48760), '24% of forecast sales', [45200, 46100, 45800, 47900, 46300, 48100, 47400, 48760])}
 ${kpi('Swap requests', '2', '1 waiting for a teammate', [5, 3, 4, 2, 6, 3, 1, 2])}
 </div>
+<p><a href="/app/kitchen-display">Open the kitchen display</a></p>
 <h2 class="section">Shifts covered per day</h2>
 <svg role="img" aria-label="Bar chart: shifts covered per day, Monday to Sunday: 11, 12, 10, 13, 14, 15 and 9. Saturday is the busiest day." width="320" height="160" viewBox="0 0 320 160">
 ${COVERED.map((v, i) => `<rect class="chart-bar" x="${10 + i * 45}" y="${140 - v * 8}" width="30" height="${v * 8}"></rect><text x="${25 + i * 45}" y="156" text-anchor="middle">${DAYS[i].slice(0, 3)}</text>`).join('\n')}
@@ -792,6 +793,27 @@ pages['app/notifications.html'] = { app: true, title: 'Notifications', route: '/
 <p id="notice-status" role="status"></p>
 <ul class="notice-list">
 ${NOTES.map(([u, t, dt, label]) => `<li data-unread="${u}">${u ? '<span class="badge badge-ok unread-tag">New</span> ' : ''}${t}<br><time class="muted" datetime="${dt}">${label}</time></li>`).join('\n')}
+</ul>` };
+
+// Kitchen display: dark-mode cases D-01 to D-06 (styles/kitchen-display.css; see ISSUES.md, "Dark mode cases").
+// The dark theme is switched on by the "Dark mode" button (data-theme="dark" on <html>, lab.js), never by prefers-color-scheme (D-06).
+const TICKETS = [
+  ['Table 4', '08:12', ['2 × masala chai', '1 × egg bhurji toast'], 'No sugar in one chai', true],
+  ['Table 9', '08:15', ['1 × filter coffee', '1 × banana bread'], 'Warm the bread', false],
+  ['Takeaway 31', '08:17', ['3 × cold coffee'], 'Oat milk in all three', false],
+  ['Table 2', '08:20', ['2 × idli plate', '2 × filter coffee'], 'Extra chutney', false],
+];
+pages['app/kitchen-display.html'] = { app: true, title: 'Kitchen display', route: '/app/kitchen-display', css: ['/styles/kitchen-display.css'], body: `
+<h1>Kitchen display (demo orders)</h1>
+<p>Orders waiting at Fernhollow Café, Indiranagar. The kitchen screen is often switched to dark mode during the evening shift.</p>
+<p><button type="button" class="btn kd-toggle" id="theme-toggle" aria-pressed="false">Dark mode</button></p>
+<ul class="kd-board" aria-label="Waiting orders">
+${TICKETS.map(([who, t, items, note, next]) => `<li class="kd-ticket${next ? ' is-next' : ''}">
+<h2>${who}${next ? ' <span class="badge badge-ok">Next</span>' : ''}</h2>
+<p><span class="kd-time">Ordered at <time>${t}</time></span></p>
+<ul>${items.map((i) => `<li>${i}</li>`).join('')}</ul>
+<p class="kd-note">Note: ${note}</p>
+</li>`).join('\n')}
 </ul>` };
 
 // ---------- write ----------

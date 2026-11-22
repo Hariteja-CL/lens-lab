@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kitchen display · Fernhollow (Lens Lab)</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/components.css">
+<link rel="stylesheet" href="/styles/kitchen-display.css">
+<script src="/scripts/lab.js" defer></script>
+</head>
+<body>
+<header>
+<div class="lab-bar">Lens Lab: a CraftLayers testing ground. Fernhollow is a fictional product with deliberate design and accessibility flaws.</div>
+<div class="site-header">
+<a class="logo" href="/app/dashboard">Fernhollow <span class="muted">app</span></a>
+<nav class="site-nav app-nav" aria-label="App">
+<ul>
+<li><a href="/app/dashboard">Dashboard</a></li>
+<li><a href="/app/schedule">Schedule</a></li>
+<li><a href="/app/team">Team</a></li>
+<li><a href="/app/reports">Reports</a></li>
+<li><a href="/app/time-off">Time off</a></li>
+<li><a href="/app/notifications">Notifications</a></li>
+<li><a href="/app/settings">Settings</a></li>
+<li><a href="/app/billing">Billing</a></li>
+<li><a href="/">Fernhollow website</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main">
+<h1>Kitchen display (demo orders)</h1>
+<p>Orders waiting at Fernhollow Café, Indiranagar. The kitchen screen is often switched to dark mode during the evening shift.</p>
+<p><button type="button" class="btn kd-toggle" id="theme-toggle" aria-pressed="false">Dark mode</button></p>
+<ul class="kd-board" aria-label="Waiting orders">
+<li class="kd-ticket is-next">
+<h2>Table 4 <span class="badge badge-ok">Next</span></h2>
+<p><span class="kd-time">Ordered at <time>08:12</time></span></p>
+<ul><li>2 × masala chai</li><li>1 × egg bhurji toast</li></ul>
+<p class="kd-note">Note: No sugar in one chai</p>
+</li>
+<li class="kd-ticket">
+<h2>Table 9</h2>
+<p><span class="kd-time">Ordered at <time>08:15</time></span></p>
+<ul><li>1 × filter coffee</li><li>1 × banana bread</li></ul>
+<p class="kd-note">Note: Warm the bread</p>
+</li>
+<li class="kd-ticket">
+<h2>Takeaway 31</h2>
+<p><span class="kd-time">Ordered at <time>08:17</time></span></p>
+<ul><li>3 × cold coffee</li></ul>
+<p class="kd-note">Note: Oat milk in all three</p>
+</li>
+<li class="kd-ticket">
+<h2>Table 2</h2>
+<p><span class="kd-time">Ordered at <time>08:20</time></span></p>
+<ul><li>2 × idli plate</li><li>2 × filter coffee</li></ul>
+<p class="kd-note">Note: Extra chutney</p>
+</li>
+</ul>
+</main>
+<footer class="site-footer">
+<p>Fernhollow is a fictional product made to demonstrate CraftLayers Lens. Any resemblance to a real product or company is unintended.</p>
+<ul>
+<li><a href="/about">About</a></li>
+<li><a href="/changelog">Changelog</a></li>
+<li><a href="/privacy">Privacy</a></li>
+<li><a href="/help">Help centre</a></li>
+<li><a href="/app/dashboard">Open the demo app</a></li>
+<li><a href="https://craftlayers.com">CraftLayers</a></li>
+</ul>
+</footer>
+</body>
+</html>

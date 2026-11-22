@@ -2,6 +2,17 @@
 (function () {
   'use strict';
 
+  // Kitchen display: the "Dark mode" button switches the dark theme with an attribute on <html> (ISSUES.md D-06: no prefers-color-scheme rule).
+  var themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+      if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      else document.documentElement.removeAttribute('data-theme');
+      themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    });
+  }
+
   // Date-range and view toggles: buttons with aria-pressed that show one panel at a time.
   document.querySelectorAll('[data-toggle-group]').forEach(function (group) {
     var buttons = group.querySelectorAll('button[data-panel]');
