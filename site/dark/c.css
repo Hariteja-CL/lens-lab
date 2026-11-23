@@ -1,4 +1,4 @@
-/* c. Dark mode (device setting) where secondary text fails contrast: #4a4a4a on #121212 = 2.11:1 (needs 4.5:1). Light mode passes. */
+/* c. Dark mode (device setting) where secondary text fails contrast: #4a4a4a on #121212 = 2.11:1, and 1.88:1 on the #1e1e1e cards (needs 4.5:1). Light mode passes. */
 :root {
   --c-bg: #ffffff;
   --c-surface: #f6f5f2;

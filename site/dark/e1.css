@@ -1,5 +1,5 @@
 /* e. Dark mode switched by a toggle: class="dark" on <html>. No prefers-color-scheme rule, so a browser check that only sets the device
-   setting never sees dark mode. In dark mode secondary text fails: #4a4a4a on #121212 = 2.11:1. */
+   setting never sees dark mode. In dark mode secondary text fails: #4a4a4a on #121212 = 2.11:1, and 1.88:1 on the #1e1e1e cards. */
 :root {
   --e1-bg: #ffffff;
   --e1-surface: #f6f5f2;
