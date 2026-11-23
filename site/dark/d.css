@@ -1,0 +1,36 @@
+/* d. Dark mode switched by the device setting (prefers-color-scheme). Complete and readable: the control case. */
+:root {
+  --d-bg: #ffffff;
+  --d-surface: #f6f5f2;
+  --d-text: #1c1b19;
+  --d-muted: #44403c;
+  --d-border: #d6d3d1;
+  --d-brand: #9a3412;
+  --d-brand-ink: #ffffff;
+  --d-focus: #1d4ed8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  --d-bg: #121212;
+  --d-surface: #1e1e1e;
+  --d-text: #ececec;
+  --d-muted: #b5b0aa;
+  --d-border: #3a3a3a;
+  --d-brand: #fb923c;
+  --d-brand-ink: #1a0d03;
+  --d-focus: #93c5fd;
+  }
+}
+html { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--d-text); background: var(--d-bg); }
+body { margin: 0; line-height: 1.5; }
+a { color: var(--d-brand); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--d-focus); outline-offset: 2px; }
+header, footer { padding: 16px; border-bottom: 1px solid var(--d-border); }
+footer { border-top: 1px solid var(--d-border); border-bottom: 0; color: var(--d-muted); font-size: 0.875rem; }
+main { max-width: 880px; margin: 0 auto; padding: 24px 16px; }
+.muted { color: var(--d-muted); }
+.card { background: var(--d-surface); border: 1px solid var(--d-border); border-radius: 8px; padding: 16px; margin: 16px 0; }
+.btn { display: inline-block; padding: 12px 16px; border-radius: 6px; font: inherit; border: 1px solid var(--d-brand); background: var(--d-brand); color: var(--d-brand-ink); text-decoration: none; cursor: pointer; }
+.btn-quiet { background: transparent; color: var(--d-text); border-color: var(--d-border); }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--d-border); }
